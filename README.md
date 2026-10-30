@@ -46,3 +46,15 @@ npm audit --omit=dev
 ```
 
 Keep `.env`, local databases, dependencies, user data, and build artifacts out of Git.
+
+
+## Screenshots
+
+### Dashboard Overview
+![Dashboard](docs/screenshots/01_dashboard.png)
+
+### Login Overview
+![Login](docs/screenshots/02_login.png)
+
+### Adminwalletbalances.Csv Overview
+![Adminwalletbalances.Csv](docs/screenshots/03_adminwalletbalances.csv.png)
