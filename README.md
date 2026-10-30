@@ -11,6 +11,17 @@ Standalone Laravel application for educational/demo use. Simulated credits only;
 - Admin-configurable per-wallet transaction/daily limits, review queue, audit history, balances and CSV exports.
 - Auth, role checks, CSRF, strict validation, transaction rate limits; clients cannot set balances.
 
+## Screenshots
+
+| Tampilan | Preview |
+|---|---|
+| **Dashboard Dompet Digital**<br>Saldo kredit simulasi, formulir setor/tarik/transfer, dan tabel mutasi buku besar | ![Dashboard Dompet Digital](docs/screenshots/01-wallet-dashboard.png) |
+| **Alur Transfer Antar Pengguna**<br>Validasi email penerima, nominal kredit, dan token idempotensi transaksi | ![Alur Transfer](docs/screenshots/02-transfer-workflow.png) |
+| **Panel Administrasi Dompet**<br>Daftar saldo dompet pengguna dan konfigurasi limit per transaksi serta harian | ![Panel Administrasi](docs/screenshots/03-admin-wallet-management.png) |
+| **Antrean Audit & Persetujuan Mutasi**<br>Log peristiwa mutasi status transaksi dan formulir peninjauan catatan admin | ![Antrean Audit Mutasi](docs/screenshots/04-audit-trail-queue.png) |
+
+---
+
 ## Local setup (Windows)
 
 ```powershell

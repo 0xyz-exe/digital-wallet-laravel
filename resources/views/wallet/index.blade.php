@@ -6,10 +6,16 @@
 <section class="p-6 bg-white shadow rounded"><h3 class="text-lg font-bold">Available simulated balance</h3><p class="text-3xl">{{ number_format(intdiv($wallet->balance_minor, 100)).'.'.str_pad((string) ($wallet->balance_minor % 100), 2, '0', STR_PAD_LEFT) }} credits</p><p class="text-sm text-gray-600">Simulation only. No real money, bank, card, or payment processor.</p></section>
 <div class="grid md:grid-cols-3 gap-4">
 @foreach(['deposit'=>'Request deposit','withdraw'=>'Request withdrawal','transfer'=>'Transfer credits'] as $action=>$label)
-<form method="POST" action="{{ route('wallet.'.$action) }}" class="p-5 bg-white shadow rounded space-y-3">@csrf<h3 class="font-bold">{{ $label }}</h3>
-@if($action==='transfer')<label>Recipient email<input required type="email" name="recipient_email" class="block w-full rounded border-gray-300"></label>@endif
-<label>Amount<input required name="amount" inputmode="decimal" placeholder="25.00" class="block w-full rounded border-gray-300"></label>
-<input type="hidden" name="idempotency_key" value="{{ \Illuminate\Support\Str::uuid() }}"><button class="px-4 py-2 rounded bg-indigo-700 text-white">{{ $label }}</button></form>
+<form method="POST" action="{{ route('wallet.'.$action) }}" class="p-5 bg-white shadow rounded flex flex-col justify-between space-y-4">@csrf
+<div>
+<h3 class="font-bold text-gray-800">{{ $label }}</h3>
+<div class="mt-3 space-y-3">
+@if($action==='transfer')<label class="block text-sm font-medium text-gray-700">Recipient email<input required type="email" name="recipient_email" placeholder="user@example.test" class="mt-1 block w-full rounded border-gray-300"></label>@endif
+<label class="block text-sm font-medium text-gray-700">Amount (credits)<input required name="amount" inputmode="decimal" placeholder="25.00" class="mt-1 block w-full rounded border-gray-300"></label>
+<input type="hidden" name="idempotency_key" value="{{ \Illuminate\Support\Str::uuid() }}">
+</div>
+</div>
+<button class="mt-4 w-full px-4 py-2 rounded bg-indigo-700 hover:bg-indigo-800 text-white font-medium shadow-sm">{{ $label }}</button></form>
 @endforeach
 </div>
 <section class="p-5 bg-white shadow rounded"><h3 class="font-bold text-lg">Transactions</h3><div class="overflow-x-auto"><table class="w-full text-left"><thead><tr><th>Reference</th><th>Type</th><th>From</th><th>To</th><th>Amount</th><th>Status</th><th>Created</th></tr></thead><tbody>
